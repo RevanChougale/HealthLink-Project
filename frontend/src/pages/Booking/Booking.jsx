@@ -64,7 +64,7 @@ function Booking() {
         // -----------------------------
 
         const patientResponse = await axios.get(
-          `http://localhost:8081/api/patients/email/${email}`,
+          `http://abc123.ap-south-1.elb.amazonaws.com/api/patients/email/${email}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -85,7 +85,7 @@ function Booking() {
         );
 
         const doctorResponse = await axios.get(
-          `http://localhost:8081/api/doctors/${doctorId}`,
+          `http://abc123.ap-south-1.elb.amazonaws.com/api/doctors/${doctorId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -173,7 +173,7 @@ function Booking() {
 
 
       const response = await axios.get(
-        "http://localhost:8081/api/slots/available",
+        "http://abc123.ap-south-1.elb.amazonaws.com/api/slots/available",
         {
           params: {
             doctorId: doctorId,
@@ -306,7 +306,7 @@ function Booking() {
 
 
       const response = await axios.post(
-        "http://localhost:8081/api/appointments",
+        "http://abc123.ap-south-1.elb.amazonaws.com/api/appointments",
         bookingData,
         {
           headers: {

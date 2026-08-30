@@ -34,7 +34,7 @@ function Doctors() {
       if (city || specialization) {
 
         response = await axios.get(
-          "http://localhost:8081/api/doctors/search",
+          "http://abc123.ap-south-1.elb.amazonaws.com/api/doctors/search",
           {
             params: {
               city: city || undefined,
@@ -50,7 +50,7 @@ function Doctors() {
       } else {
 
         response = await axios.get(
-          "http://localhost:8081/api/doctors",
+          "http://abc123.ap-south-1.elb.amazonaws.com/api/doctors",
           {
             headers: {
               Authorization: `Bearer ${token}`,

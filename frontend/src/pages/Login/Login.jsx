@@ -23,7 +23,7 @@ function Login() {
       setMessage("");
 
       const response = await axios.post(
-        "http://localhost:8081/api/auth/login",
+        "http://abc123.ap-south-1.elb.amazonaws.com/api/auth/login",
         {
           email: email,
           password: password

@@ -38,7 +38,7 @@ function DoctorDetails() {
         console.log("Loading doctor ID:", id);
 
         const response = await axios.get(
-          `http://localhost:8081/api/doctors/${id}`,
+          `http://abc123.ap-south-1.elb.amazonaws.com/api/doctors/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

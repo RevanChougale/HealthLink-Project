@@ -27,7 +27,7 @@ function Register() {
     try {
 
       const response = await axios.post(
-        "http://localhost:8081/api/auth/register",
+        "http://abc123.ap-south-1.elb.amazonaws.com/api/auth/register",
         {
           name,
           email,

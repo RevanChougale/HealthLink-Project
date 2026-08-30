@@ -34,7 +34,7 @@ function Appointments() {
       // =========================================
 
       const patientResponse = await axios.get(
-        `http://localhost:8081/api/patients/email/${email}`,
+        `http://abc123.ap-south-1.elb.amazonaws.com/api/patients/email/${email}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -49,7 +49,7 @@ function Appointments() {
       // =========================================
 
       const response = await axios.get(
-        `http://localhost:8081/api/appointments/patient/${patientId}`,
+        `http://abc123.ap-south-1.elb.amazonaws.com/api/appointments/patient/${patientId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -77,7 +77,7 @@ function Appointments() {
 
           try {
             const doctorResponse = await axios.get(
-              `http://localhost:8081/api/doctors/${appointment.doctorId}`,
+              `http://abc123.ap-south-1.elb.amazonaws.com/api/doctors/${appointment.doctorId}`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -99,7 +99,7 @@ function Appointments() {
 
           try {
             const slotResponse = await axios.get(
-              `http://localhost:8081/api/slots/${appointment.timeSlotId}`,
+              `http://abc123.ap-south-1.elb.amazonaws.com/api/slots/${appointment.timeSlotId}`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -164,7 +164,7 @@ function Appointments() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:8081/api/appointments/${appointmentId}/cancel`,
+        `http://abc123.ap-south-1.elb.amazonaws.com/api/appointments/${appointmentId}/cancel`,
         {},
         {
           headers: {
