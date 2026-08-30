@@ -1,3 +1,4 @@
+import API_URL from "../../api";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -34,7 +35,7 @@ function Doctors() {
       if (city || specialization) {
 
         response = await axios.get(
-          "http://abc123.ap-south-1.elb.amazonaws.com/api/doctors/search",
+          `${API_URL}/api/doctors/search`,
           {
             params: {
               city: city || undefined,
@@ -50,7 +51,7 @@ function Doctors() {
       } else {
 
         response = await axios.get(
-          "http://abc123.ap-south-1.elb.amazonaws.com/api/doctors",
+          `${API_URL}/api/doctors`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -65,7 +66,7 @@ function Doctors() {
     } catch (error) {
 
       console.error(
-        "Error fetching doctors:",
+        "Error fetching doctors:`",
         error
       );
 

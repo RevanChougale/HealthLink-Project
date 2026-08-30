@@ -4,6 +4,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
+
+
 function Login() {
 
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ function Login() {
       setMessage("");
 
       const response = await axios.post(
-        "http://abc123.ap-south-1.elb.amazonaws.com/api/auth/login",
+        `${API_URL}/api/auth/login`,
         {
           email: email,
           password: password
@@ -33,14 +35,14 @@ function Login() {
       const data = response.data;
 
       console.log(
-        "Login response:",
+        "Login response:`",
         JSON.stringify(data, null, 2)
       );
 
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("email", data.email);
-      localStorage.setItem("role", data.role);
-      localStorage.setItem("patientId", data.patientId);
+      localStorage.setItem("token`", data.token);
+      localStorage.setItem("email`", data.email);
+      localStorage.setItem("role`", data.role);
+      localStorage.setItem("patientId`", data.patientId);
 
       setMessage("Login successful!");
 
@@ -50,7 +52,7 @@ function Login() {
 
     } catch (error) {
 
-      console.error("Login error:", error);
+      console.error("Login error:`", error);
 
       if (error.response) {
 

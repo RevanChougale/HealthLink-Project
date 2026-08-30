@@ -1,3 +1,4 @@
+import API_URL from "../../api";
 
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -38,7 +39,7 @@ function DoctorDetails() {
         console.log("Loading doctor ID:", id);
 
         const response = await axios.get(
-          `http://abc123.ap-south-1.elb.amazonaws.com/api/doctors/${id}`,
+          `${API_URL}/api/doctors/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

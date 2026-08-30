@@ -1,3 +1,4 @@
+import API_URL from "../../api";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -34,7 +35,7 @@ function Appointments() {
       // =========================================
 
       const patientResponse = await axios.get(
-        `http://abc123.ap-south-1.elb.amazonaws.com/api/patients/email/${email}`,
+        `${API_URL}/api/patients/email/${email}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -49,7 +50,7 @@ function Appointments() {
       // =========================================
 
       const response = await axios.get(
-        `http://abc123.ap-south-1.elb.amazonaws.com/api/appointments/patient/${patientId}`,
+        `${API_URL}/api/appointments/patient/${patientId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -77,7 +78,7 @@ function Appointments() {
 
           try {
             const doctorResponse = await axios.get(
-              `http://abc123.ap-south-1.elb.amazonaws.com/api/doctors/${appointment.doctorId}`,
+              `${API_URL}/api/doctors/${appointment.doctorId}`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -99,7 +100,7 @@ function Appointments() {
 
           try {
             const slotResponse = await axios.get(
-              `http://abc123.ap-south-1.elb.amazonaws.com/api/slots/${appointment.timeSlotId}`,
+              `${API_URL}/api/slots/${appointment.timeSlotId}`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -164,7 +165,7 @@ function Appointments() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://abc123.ap-south-1.elb.amazonaws.com/api/appointments/${appointmentId}/cancel`,
+        `${API_URL}/api/appointments/${appointmentId}/cancel`,
         {},
         {
           headers: {

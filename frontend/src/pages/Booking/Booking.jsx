@@ -1,3 +1,4 @@
+import API_URL from "../../api";
 
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -64,7 +65,7 @@ function Booking() {
         // -----------------------------
 
         const patientResponse = await axios.get(
-          `http://abc123.ap-south-1.elb.amazonaws.com/api/patients/email/${email}`,
+          `${API_URL}/api/patients/email/${email}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -80,12 +81,12 @@ function Booking() {
         // -----------------------------
 
         console.log(
-          "Loading doctor:",
+          "Loading doctor:`",
           doctorId
         );
 
         const doctorResponse = await axios.get(
-          `http://abc123.ap-south-1.elb.amazonaws.com/api/doctors/${doctorId}`,
+          `${API_URL}/api/doctors/${doctorId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -95,7 +96,7 @@ function Booking() {
 
 
         console.log(
-          "Doctor information:",
+          "Doctor information:`",
           doctorResponse.data
         );
 
@@ -105,7 +106,7 @@ function Booking() {
       } catch (error) {
 
         console.error(
-          "Error loading booking information:",
+          "Error loading booking information:`",
           error
         );
 
@@ -173,7 +174,7 @@ function Booking() {
 
 
       const response = await axios.get(
-        "http://abc123.ap-south-1.elb.amazonaws.com/api/slots/available",
+        `${API_URL}/api/slots/available`,
         {
           params: {
             doctorId: doctorId,
@@ -188,7 +189,7 @@ function Booking() {
 
 
       console.log(
-        "Available slots:",
+        "Available slots:`",
         response.data
       );
 
@@ -198,7 +199,7 @@ function Booking() {
     } catch (error) {
 
       console.error(
-        "Error fetching available slots:",
+        "Error fetching available slots:`",
         error
       );
 
@@ -300,13 +301,13 @@ function Booking() {
 
 
       console.log(
-        "Booking request:",
+        "Booking request:`",
         bookingData
       );
 
 
       const response = await axios.post(
-        "http://abc123.ap-south-1.elb.amazonaws.com/api/appointments",
+        `${API_URL}/api/appointments`,
         bookingData,
         {
           headers: {
@@ -317,7 +318,7 @@ function Booking() {
 
 
       console.log(
-        "Booking response:",
+        "Booking response:`",
         response.data
       );
 
@@ -342,7 +343,7 @@ function Booking() {
     } catch (error) {
 
       console.error(
-        "Booking error:",
+        "Booking error:`",
         error
       );
 

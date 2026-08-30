@@ -1,3 +1,4 @@
+import API_URL from "../../api";
 
 import { useState } from "react";
 import axios from "axios";
@@ -27,7 +28,7 @@ function Register() {
     try {
 
       const response = await axios.post(
-        "http://abc123.ap-south-1.elb.amazonaws.com/api/auth/register",
+        `${API_URL}/api/auth/register`,
         {
           name,
           email,
@@ -38,7 +39,7 @@ function Register() {
       );
 
       console.log(
-        "Register response:",
+        "Register response:`",
         response.data
       );
 
@@ -53,7 +54,7 @@ function Register() {
     } catch (error) {
 
       console.error(
-        "Registration error:",
+        "Registration error:`",
         error
       );
 
