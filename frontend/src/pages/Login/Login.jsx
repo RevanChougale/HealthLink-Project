@@ -40,10 +40,10 @@ function Login() {
         JSON.stringify(data, null, 2)
       );
 
-      localStorage.setItem("token`", data.token);
-      localStorage.setItem("email`", data.email);
-      localStorage.setItem("role`", data.role);
-      localStorage.setItem("patientId`", data.patientId);
+     localStorage.setItem("token", data.token);
+localStorage.setItem("email", data.email);
+localStorage.setItem("role", data.role);
+localStorage.setItem("patientId", data.patientId);
 
       setMessage("Login successful!");
 
