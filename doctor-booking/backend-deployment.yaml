@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doctor-booking-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: doctor-booking-backend
+  template:
+    metadata:
+      labels:
+        app: doctor-booking-backend
+    spec:
+      containers:
+        - name: backend
+          image: revan02/doctor-booking-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
